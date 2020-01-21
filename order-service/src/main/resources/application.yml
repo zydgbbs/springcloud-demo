@@ -4,6 +4,24 @@ eureka:
       defaultZone: http://localhost:8761/eureka
 server:
   port: 8764
+  tomcat:
+    max-threads: 10
 spring:
   application:
     name: order-service
+
+#开启hystrix服务降级
+feign:
+  hystrix:
+    enabled: true
+#配置超时时间为4秒，默认是1秒
+hystrix:
+  command:
+    default:  #default全局有效，service id指定应用有效
+      execution:
+        timeout:
+          #是否开启超时熔断
+          enabled: true
+        isolation:
+          thread:
+            timeoutInMilliseconds: 4000 #断路器超时时间，默认1000ms
