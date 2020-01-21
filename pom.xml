@@ -25,6 +25,8 @@
 		<module>member-service</module>
 		<module>order-service</module>
 		<module>zuul-service</module>
+		<module>configserver-service</module>
+		<module>configclient-service</module>
 	</modules>
 
 	<dependencies>
