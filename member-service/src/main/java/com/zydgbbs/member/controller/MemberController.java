@@ -15,6 +15,12 @@ public class MemberController {
 
     @RequestMapping("/getMemberAll")
     public List<String> getMemberAll(){
+        //做雪崩效应，模拟三秒
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         List<String> members = new ArrayList<>();
         members.add("张三");
         members.add("李四");
